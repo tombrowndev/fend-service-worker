@@ -87,7 +87,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
+  image.alt = restaurant.name + ' in ' + restaurant.neighborhood;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -109,8 +110,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
-    const day = document.createElement('td');
+    const day = document.createElement('th');
     day.innerHTML = key;
+    day.align = 'left';
     row.appendChild(day);
 
     const time = document.createElement('td');
@@ -128,6 +130,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.id = 'reviews-title';
   container.appendChild(title);
 
   if (!reviews) {
