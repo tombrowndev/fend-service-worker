@@ -35,10 +35,13 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+div, section {
+  box-sizing: border-box;
+}
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-	margin-top: 80px;
+  padding-bottom: 15px;
 }
 #footer {
   background-color: #444;
@@ -74,12 +77,16 @@ nav h1 a {
   letter-spacing: 5px;
   text-transform: uppercase;
 }
+#maincontent {
+	margin-top: 80px;
+}
 #breadcrumb {
     padding: 10px 16px 15px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
+    box-sizing: border-box;
     /*width: calc(50% - 80px);*/
 }
 
@@ -145,13 +152,15 @@ nav h1 a {
   list-style: outside none none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
+  margin: 15px 15px 0;
   padding: 10px 10px 25px;
   text-align: left;
   max-width: 270px;
@@ -327,4 +336,42 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* ====================== Responsive ====================== */
+
+@media screen and (min-width: 768px) {
+  nav h1 {
+    font-size: 16pt;
+  }
+  #restaurant-name {
+    font-size: 19pt;
+  }
+  .filter-options select {
+    width: 49%;
+  }
+  .filter-options select:last-child {
+    float: right;
+  }
+  .inside #breadcrumb {
+    width: 50%;
+  }
+  .inside #map-container, .inside #restaurant-container, .inside #reviews-container {
+    width: 50%;
+  }
+  .inside #map-container {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    height: calc(100% - 80px);
+  }
+  .inside #restaurant-container, .inside #reviews-container {
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+  .inside #footer {
+    width: 50%;
+  }
 }
