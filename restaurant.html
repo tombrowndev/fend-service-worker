@@ -12,16 +12,19 @@
 </head>
 
 <body class="inside">
+  <a class="hidden" href="#restaurant-container">Skip to content</a>
   <!-- Beginning header -->
   <header>
     <!-- Beginning nav -->
-    <nav>
+    <nav id="site-nav">
       <h1><a title="Restaurant Reviews" title="Go to home" href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" aria-label="Breadcrumbs" >
-      <li><a href="/">Home</a></li>
-    </ul>
+    <nav aria-label="Breadcrumb" id="breadcrumb">
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
     <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
@@ -31,16 +34,16 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" tabindex="-1" role="application"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
-      <img id="restaurant-img">
+      <h2 tabindex="0" id="restaurant-name"></h1>
+      <img tabindex="0" id="restaurant-img">
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
-      <h2 id="hours-title">Opening Hours</h2>
+      <h3 tabindex="0" id="hours-title">Opening Hours</h3>
       <table id="restaurant-hours" aria-labelledby="hours-title" aria-describedby="hours-info"></table>
       <div style="display: none" id="hours-info">A table listing the opening hours for this restaurant</div>
     </section>

@@ -147,6 +147,12 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+
+  const restaurantListTitle = document.createElement('h2');
+  restaurantListTitle.innerHTML = 'Restaurant List';
+  restaurantListTitle.className = 'hidden';
+  ul.append(restaurantListTitle);
+
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
@@ -165,7 +171,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = restaurant.name + ' in ' + restaurant.neighborhood;
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
 

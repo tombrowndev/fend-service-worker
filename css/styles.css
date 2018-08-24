@@ -38,6 +38,15 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 div, section {
   box-sizing: border-box;
 }
+.hidden {
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  top: -100px;
+  left: -100px;
+}
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -60,14 +69,14 @@ body > header {
 	z-index: 1001;
 	top: 0;
 }
-nav {
+#site-nav {
   width: 100%;
   height: 80px;
   background-color: #252831;
   text-align:center;
 	display: flex;
 }
-nav h1 {
+#site-nav h1 {
   margin: auto;
 }
 nav h1 a {
@@ -80,7 +89,7 @@ nav h1 a {
 #maincontent {
 	margin-top: 80px;
 }
-#breadcrumb {
+#breadcrumb ul {
     padding: 10px 16px 15px;
     list-style: none;
     background-color: #eee;
@@ -91,25 +100,25 @@ nav h1 a {
 }
 
 /* Display list items side by side */
-#breadcrumb li {
+#breadcrumb ul li {
     display: inline;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
-#breadcrumb li+li:before {
+#breadcrumb ul li+li:before {
     padding: 8px;
     color: black;
     content: "/\00a0";
 }
 
 /* Add a color to all links inside the list */
-#breadcrumb li a {
+#breadcrumb ul li a {
     color: #0275d8;
     text-decoration: none;
 }
 
 /* Add a color on mouse-over */
-#breadcrumb li a:hover {
+#breadcrumb ul li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
@@ -173,7 +182,7 @@ nav h1 a {
 	min-width: 100%;
 	height: auto;
 }
-#restaurants-list li h1 {
+#restaurants-list li h3 {
   color: #f18200;
   font-family: Arial,sans-serif;
   font-size: 14pt;
@@ -259,12 +268,13 @@ nav h1 a {
 #reviews-container {
   padding-bottom: 70px;
 }
-#reviews-container h2, #restaurant-container h2 {
+#reviews-container h3, #restaurant-container h3 {
   color: #f58500;
-  font-size: 18pt;
+  font-size: 16pt;
   font-weight: 300;
   letter-spacing: -1px;
   padding-bottom: 1pt;
+  margin-bottom: 10px;
 }
 #reviews-list {
   margin: 0;
@@ -302,10 +312,12 @@ nav h1 a {
 	-moz-border-top-left-radius: 10px;
 	border-top-left-radius: 10px;
 }
-#reviews-list li header p {
+#reviews-list li header p,  #reviews-list li header h4 {
 	color: #fff;
 	font-size: 14pt;
-	margin-bottom: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  margin: 0;
 }
 #reviews-list li header p.review-date {
 	font-size: 10pt;
@@ -344,7 +356,7 @@ nav h1 a {
 /* ====================== Responsive ====================== */
 
 @media screen and (min-width: 768px) {
-  nav h1 a {
+  #site-nav h1 a {
     font-size: 16pt;
   }
   #restaurant-name {
@@ -356,7 +368,7 @@ nav h1 a {
   .filter-options select:last-child {
     float: right;
   }
-  .inside #breadcrumb {
+  .inside #breadcrumb ul {
     width: 50%;
   }
   .inside #map-container, .inside #restaurant-container, .inside #reviews-container {
